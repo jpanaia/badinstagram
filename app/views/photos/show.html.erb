@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<!-- If no param in query string -->
+<% if params[:hex] == nil %>
+
+  <%= image_tag @photo.avatar.url(:medium) %>
+
+<% else %>
+<!-- If hex value in query string -->
+  <div style="background: #<%= @hexcode %>; width:300px;height:300px">
+
+  </div>
+
+ <% end %>
+
+
+
+<h2><%= link_to "Best Filter Ever", :controller => "photos", action: "show", hex: "#{@hexcode}" %> </h2>
+
+
+<%= link_to "Undo Filter", :controller => "photos", action: "show", hex: nil %>
+<br/>
+<br/>
+<br/>
+
+<%= link_to 'Edit', edit_photo_path(@photo), class: "btn btn-default" %>
+<%= link_to 'Back', photos_path, class: "btn btn-default" %>

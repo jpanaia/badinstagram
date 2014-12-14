@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+    <h1>Bad Instagram</h1>
+<br/><br/>
+      <p>
+        <% @photos.each do |photo| %>
+          <div class="col-md-4">
+           
+           <%= image_tag photo.avatar.url(:thumb) %>
+           <%#= link_to image_tag photo.avatar.url(:thumb), controller: "photos", action: "show" %>
+
+            <p><%= link_to 'Show', photo %> |
+            <%= link_to 'Edit', edit_photo_path(photo) %> |
+            <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+              </div>
+
+        <% end %>
+      
+  </div>
+
+<br/><br/>
+
+<p align="center"><%= link_to 'New Photo', new_photo_path, class: "btn btn-primary btn-lg" %></p>
